@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@yoondb_high?TNS_ADMIN=C:/Users/YoonPro/Desktop/Wallet_yoondb
+    username: FOOTBALL_HUB
+    password: Precurs0rl@b!
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      auto-commit: true
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 5
+      maximum-pool-size: 10
+      idle-timeout: 30000
+      pool-name: HikariCP
+      max-lifetime: 1800000
+
+#  jpa: 
+#    hibernate:
+#      ddl-auto: none
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+
+  mybatis:
+    mapper-locations: classpath:mapper/**/*.xml
+    type-aliases-package: com.football.model
+
+# Hibernate Validator 관련 추가
+logging:
+  level:
+    root: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE
+    com.zaxxer.hikari: INFO
+    org.springframework.web: INFO
