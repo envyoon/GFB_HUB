@@ -41,7 +41,7 @@ dependencies {
 	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
 	
 	//Mybatis Deoendencies
-	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.3'
 	
 	// Development & Lombok
 	compileOnly 'org.projectlombok:lombok'

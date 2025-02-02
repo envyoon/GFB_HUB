@@ -30,11 +30,6 @@ public enum ErrorCode {
         return message;
     }
 
-    // 생성자 추가
-    ErrorCode(String message) {
-        this.message = message;
-    }
-    
     // 테스트 코드
     public static void main(String[] args) {
         System.out.println("🔴 " + ErrorCode.INVALID_INPUT_VALUE.getMessage());

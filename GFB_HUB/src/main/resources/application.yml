@@ -22,8 +22,8 @@ spring:
 #        format_sql: true
 
   mybatis:
-    mapper-locations: classpath:mapper/**/*.xml
-    type-aliases-package: com.football.model
+    mapper-locations: classpath*:mapper/*.xml
+    type-aliases-package: com.football.domain
 
 # Hibernate Validator 관련 추가
 logging:
@@ -33,3 +33,11 @@ logging:
     org.hibernate.type.descriptor.sql: TRACE
     com.zaxxer.hikari: INFO
     org.springframework.web: INFO
+    
+springdoc:
+  api-docs:
+    path: /api-docs  # API 문서 경로
+  swagger-ui:
+    path: /swagger-ui.html  # Swagger UI 접근 경로
+    operations-sorter: alpha  # API 정렬 방식 (알파벳순)
+    tags-sorter: alpha  # 태그 정렬 방식 (알파벳순)

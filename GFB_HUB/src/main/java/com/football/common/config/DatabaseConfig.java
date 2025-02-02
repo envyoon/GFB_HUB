@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
-@MapperScan(basePackages = "com.football.domain") // MyBatis Mapper 스캔
+@MapperScan(basePackages = "com.football.domain.mapper") // MyBatis Mapper 스캔
 //@EnableJpaRepositories(basePackages = "com.football.domain") // JPA 설정
 public class DatabaseConfig {
 	
