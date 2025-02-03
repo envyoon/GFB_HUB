@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.football.domain.test.mapper.TestMapper">
+
+    <!-- 모든 테스트 데이터 조회 -->
+    <select id="findAll" resultType="com.football.domain.test.dto.TestResponseDto">
+        SELECT id, name, created_at as createdAt FROM test
+    </select>
+
+    <!-- 특정 ID로 데이터 조회 -->
+    <select id="findById" parameterType="long" resultType="com.football.domain.test.dto.TestResponseDto">
+        SELECT id, name, created_at as createdAt FROM test WHERE id = #{id}
+    </select>
+
+    <!-- 데이터 추가 -->
+    <insert id="insertTest" parameterType="com.football.domain.test.dto.TestRequestDto">
+	    INSERT INTO test (name, created_at)
+	    VALUES (#{name}, SYSDATE)
+	</insert>
+
+    <!-- 데이터 삭제 -->
+    <delete id="deleteTest" parameterType="long">
+        DELETE FROM test WHERE id = #{id}
+    </delete>
+	
+	<!-- 데이터 업데이트 -->
+	<update id="updateTest" parameterType="com.football.domain.test.dto.TestRequestDto">
+	    UPDATE test 
+	    SET name = #{name} 
+	    WHERE id = #{id}
+	</update>
+
+</mapper>

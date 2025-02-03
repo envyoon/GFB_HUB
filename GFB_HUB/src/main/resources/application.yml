@@ -1,6 +1,7 @@
 spring:
   datasource:
-    url: jdbc:oracle:thin:@yoondb_high?TNS_ADMIN=C:/Users/YoonPro/Desktop/Wallet_yoondb
+#    url: jdbc:oracle:thin:@yoondb_high?TNS_ADMIN=C:/Users/YoonPro/Desktop/Wallet_yoondb
+    url: jdbc:oracle:thin:@yoondb_high?TNS_ADMIN=C:/develop/file/Wallet_yoondb
     username: FOOTBALL_HUB
     password: Precurs0rl@b!
     driver-class-name: oracle.jdbc.OracleDriver
@@ -22,17 +23,16 @@ spring:
 #        format_sql: true
 
   mybatis:
-    mapper-locations: classpath*:mapper/*.xml
+    mapper-locations: classpath*:mapper/**/*.xml
     type-aliases-package: com.football.domain
 
 # Hibernate Validator 관련 추가
 logging:
   level:
     root: INFO
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql: TRACE
-    com.zaxxer.hikari: INFO
-    org.springframework.web: INFO
+    org.mybatis: DEBUG
+    org.mybatis.spring: DEBUG
+    com.football.domain.test.mapper: DEBUG
     
 springdoc:
   api-docs:
