@@ -52,6 +52,9 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	
+	// 암호화 라이브러리
+	implementation 'org.bouncycastle:bcprov-jdk18on:1.80'
 }
 
 tasks.named('test') {
