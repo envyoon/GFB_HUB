@@ -15,7 +15,7 @@ import java.util.List;
 @Tag(name = "Test API", description = "테스트 관련 API")
 @RestController
 @RequestMapping("/api/tests")
-@RequiredArgsConstructor
+@RequiredArgsConstructor //final이 붙은 필드를 자동으로 생성자 주입 
 public class TestController {
     private final TestService testService;
     
