@@ -1,12 +1,15 @@
 package com.football.common.config;
 
+import com.football.common.utils.AES256Util;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
 
@@ -22,7 +25,52 @@ import javax.sql.DataSource;
 @Configuration
 @MapperScan(basePackages = "com.football.domain") // MyBatis Mapper 스캔
 public class DatabaseConfig {
+	
+	private final String tnsAdminPath;
 
+	// DB 접속 정보 (하드코딩)
+    private static final String DB_URL = "jdbc:oracle:thin:@yoondb_high";
+    private static final String DB_USERNAME = "Zpeaw8kaE+WJfJCPa+EMBA==";
+    private static final String DB_PASSWORD = "7TDjKRak5Iggt9i5QijErg==";
+	
+    public DatabaseConfig(Environment env) {
+    	/**
+    	 * TNS_ADMIN_PATH를 STS에서 못읽어 들이는 문제가 있어서
+    	 * .ini 파일에 아래 내용을 추가 해야함.
+    	 * 
+    	 * -Dspring-boot.run.arguments="--TNS_ADMIN_PATH=%TNS_ADMIN_PATH%"
+    	 * 
+    	 * 해당 내용은 sts가 실행될 때 OS의 TNS_ADMIN_PATH를 불러오는 설정이다. 
+    	 */
+        this.tnsAdminPath = env.getProperty("TNS_ADMIN_PATH");
+
+        if (this.tnsAdminPath == null || this.tnsAdminPath.isEmpty()) {
+            throw new IllegalStateException("환경 변수 'TNS_ADMIN_PATH'가 설정되지 않았습니다.");
+        }
+    }
+    
+    //AES-256으로 복호화
+    private String decrypt(String encryptedText) {
+        try {
+            return AES256Util.decrypt(encryptedText);
+        } catch (Exception e) {
+            throw new RuntimeException("암호화된 정보를 복호화하는데 실패했습니다.", e);
+        }
+    }
+    
+    
+	// DataSource 설정 (TNS_ADMIN 적용)
+    @Bean
+    public DataSource dataSource() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        AES256Util key = new AES256Util();
+        
+        dataSource.setUrl(DB_URL + "?TNS_ADMIN=" + tnsAdminPath);  // TNS_ADMIN 적용
+        dataSource.setUsername(decrypt(DB_USERNAME));
+        dataSource.setPassword(decrypt(DB_PASSWORD));
+        return dataSource;
+    }
+	
     // MyBatis의 SqlSessionFactory 설정
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
