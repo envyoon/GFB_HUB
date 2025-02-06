@@ -43,7 +43,7 @@ public class DatabaseConfig {
     	 * 해당 내용은 sts가 실행될 때 OS의 TNS_ADMIN_PATH를 불러오는 설정이다. 
     	 */
         this.tnsAdminPath = env.getProperty("TNS_ADMIN_PATH");
-
+        
         if (this.tnsAdminPath == null || this.tnsAdminPath.isEmpty()) {
             throw new IllegalStateException("환경 변수 'TNS_ADMIN_PATH'가 설정되지 않았습니다.");
         }
@@ -63,7 +63,6 @@ public class DatabaseConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        AES256Util key = new AES256Util();
         
         dataSource.setUrl(DB_URL + "?TNS_ADMIN=" + tnsAdminPath);  // TNS_ADMIN 적용
         dataSource.setUsername(decrypt(DB_USERNAME));
