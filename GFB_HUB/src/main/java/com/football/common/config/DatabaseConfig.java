@@ -1,6 +1,8 @@
 package com.football.common.config;
 
 import com.football.common.utils.AES256Util;
+
+
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -10,6 +12,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
 
@@ -26,9 +30,10 @@ import javax.sql.DataSource;
 @MapperScan(basePackages = "com.football.domain") // MyBatis Mapper 스캔
 public class DatabaseConfig {
 	
-	private final String tnsAdminPath;
+	private static final Logger Log = LoggerFactory.getLogger(DatabaseConfig.class);
 
-	// DB 접속 정보 (하드코딩)
+	// DB 접속 정보
+	private final String tnsAdminPath;
     private static final String DB_URL = "jdbc:oracle:thin:@yoondb_high";
     private static final String DB_USERNAME = "Zpeaw8kaE+WJfJCPa+EMBA==";
     private static final String DB_PASSWORD = "7TDjKRak5Iggt9i5QijErg==";
@@ -43,6 +48,9 @@ public class DatabaseConfig {
     	 * 해당 내용은 sts가 실행될 때 OS의 TNS_ADMIN_PATH를 불러오는 설정이다. 
     	 */
         this.tnsAdminPath = env.getProperty("TNS_ADMIN_PATH");
+        Log.info("*---------------------------------*");
+        Log.info("TNS_ADMIN_PATH : "+env.getProperty("TNS_ADMIN_PATH"));
+        Log.info("*---------------------------------*");
         
         if (this.tnsAdminPath == null || this.tnsAdminPath.isEmpty()) {
             throw new IllegalStateException("환경 변수 'TNS_ADMIN_PATH'가 설정되지 않았습니다.");
