@@ -55,6 +55,13 @@ dependencies {
 	
 	// 암호화 라이브러리
 	implementation 'org.bouncycastle:bcprov-jdk18on:1.80'
+	
+	// 메일 관련 라이브러리
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	
+	// Thymeleaf (html)
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	
 }
 
 tasks.named('test') {

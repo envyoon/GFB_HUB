@@ -12,7 +12,20 @@ spring:
       idle-timeout: 30000
       pool-name: HikariCP
       max-lifetime: 1800000
-
+  mail:
+    host: 
+    port: 587
+    username:
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: 
+          starttls:
+            enable: 
+          connectiontimeout: 
+          timeout: 
+          writetimeout: 
 #  jpa: 
 #    hibernate:
 #      ddl-auto: none
@@ -28,10 +41,11 @@ spring:
 # Hibernate Validator 관련 추가
 logging:
   level:
-    root: INFO
+    root: info
     org.mybatis: DEBUG
     org.mybatis.spring: DEBUG
     com.football.domain.test.mapper: DEBUG
+    com.football: info
     
 springdoc:
   api-docs:

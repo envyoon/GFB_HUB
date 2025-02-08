@@ -20,8 +20,9 @@
     </appender> -->
 
     <!-- 루트 로거 설정 -->
-    <root level="INFO">
+    <root level="info">
         <appender-ref ref="ConsoleAppender"/>
         <appender-ref ref="FileAppender"/>
+        <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
