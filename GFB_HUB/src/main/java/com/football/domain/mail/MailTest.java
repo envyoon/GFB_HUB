@@ -27,13 +27,9 @@ public class MailTest {
         	
         	
         	Log.info("/-------------------------/");
-        	System.out.println("✅ 메일 전송 시작");
             Log.info("✅ 메일 전송 시작");
-            Log.debug("✅ 메일 전송 시작");
-            mailService.sendEmail(recipient, subject, content);
+            //mailService.sendEmail(recipient, subject, content);
             Log.info("✅ 메일 전송 완료");
-            Log.debug("✅ 메일 전송 완료");
-            System.out.println("✅ 메일 전송 완료");
             Log.info("/-------------------------/");
         }catch(Exception e) {
         	System.out.println("오류");

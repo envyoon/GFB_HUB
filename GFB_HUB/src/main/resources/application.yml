@@ -33,20 +33,13 @@ spring:
 #    properties:
 #      hibernate:
 #        format_sql: true
-
   mybatis:
     mapper-locations: classpath*:mapper/**/*.xml
     type-aliases-package: com.football.domain
-
-# Hibernate Validator 관련 추가
-logging:
-  level:
-    root: info
-    org.mybatis: DEBUG
-    org.mybatis.spring: DEBUG
-    com.football.domain.test.mapper: DEBUG
-    com.football: info
-    
+  devtools:
+    restart:
+      enabled: false
+      
 springdoc:
   api-docs:
     path: /api-docs  # API 문서 경로
