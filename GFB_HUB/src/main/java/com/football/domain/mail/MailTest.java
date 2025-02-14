@@ -34,6 +34,16 @@ public class MailTest {
         }catch(Exception e) {
         	System.out.println("오류");
         	Log.error("오류 발생 : "+e);
+        }finally {
+            // 컨텍스트 종료
+            if (context instanceof AutoCloseable) {
+                try {
+                    ((AutoCloseable) context).close();
+                    Log.info("🛑 Spring Boot 컨텍스트 종료 완료");
+                } catch (Exception e) {
+                    Log.error("🚨 Spring Boot 컨텍스트 종료 실패", e);
+                }
+            }
         }
         
     }
