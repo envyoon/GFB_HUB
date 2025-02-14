@@ -46,6 +46,9 @@ public class MailTest {
             }
         }
         
+        
+        System.exit(0);
+        
     }
 }
 

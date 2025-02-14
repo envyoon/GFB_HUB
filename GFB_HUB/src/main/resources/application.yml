@@ -26,6 +26,8 @@ spring:
           connectiontimeout: 
           timeout: 
           writetimeout: 
+  main:
+    allow-bean-definition-overriding: true
 #  jpa: 
 #    hibernate:
 #      ddl-auto: none
