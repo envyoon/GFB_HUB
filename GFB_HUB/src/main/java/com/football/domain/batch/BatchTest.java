@@ -30,4 +30,21 @@ private static final Logger Log = LoggerFactory.getLogger(BatchTest.class);
     	
     	
     }
+    
+    
+    // 최종 정보를 메일로 전송해 주는 로직
+    public void sendMail() {
+    	
+    }
+    
+    // 팀 순위를 가져와서 DB에 저장하는 로직
+    public void getMatchRank() {
+    	
+    }
+    
+    // 팀 정보를 가져와서 DB에 저장하는 로직
+    public void getTeamInfo() {
+    	
+    }
+    
 }
