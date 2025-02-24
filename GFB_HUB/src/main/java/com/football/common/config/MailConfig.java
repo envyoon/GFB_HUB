@@ -21,7 +21,7 @@ public class MailConfig {
         
         try {
         	Log.info("/-------------------------/");
-        	Log.info("✅ 이메일 정보 가져오는 로직 시작");
+        	Log.info("✅ 이메일 설정 로드 시작");
 	        mailSender.setHost("smtp.naver.com");
 	        mailSender.setPort(465);
 	        mailSender.setUsername(AES256Util.decrypt("C85J4aGpp2uYft7PI5vsem2HrUOXyDA6HHVVy3cuxeA=")); 
@@ -34,7 +34,7 @@ public class MailConfig {
 	        props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 	        props.put("mail.smtp.ssl.enable", "true");
         
-	        Log.info("✅ 이메일 정보 가져오기 성공");
+	        Log.info("✅ 이메일 설정 로드 완료");
 	        Log.info("/-------------------------/");
         }
         catch (Exception e) {
