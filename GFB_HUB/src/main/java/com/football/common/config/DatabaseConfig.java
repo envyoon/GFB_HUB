@@ -1,7 +1,7 @@
 package com.football.common.config;
 
 import com.football.common.utils.AES256Util;
-
+import com.football.common.utils.LoggerUtil;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -13,7 +13,6 @@ import org.springframework.core.env.Environment;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.sql.DataSource;
 
@@ -30,7 +29,7 @@ import javax.sql.DataSource;
 @MapperScan(basePackages = "com.football.domain") // MyBatis Mapper 스캔
 public class DatabaseConfig {
 	
-	private static final Logger Log = LoggerFactory.getLogger(DatabaseConfig.class);
+	private static final Logger Log = LoggerUtil.getLogger(LoggingConfig.class);
 
 	// DB 접속 정보
 	private final String tnsAdminPath;

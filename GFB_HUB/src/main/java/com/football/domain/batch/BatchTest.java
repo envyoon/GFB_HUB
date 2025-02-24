@@ -1,10 +1,13 @@
 package com.football.domain.batch;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+
+import com.football.common.config.LoggingConfig;
+import com.football.common.utils.LoggerUtil;
+
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
@@ -12,7 +15,7 @@ import java.time.format.DateTimeFormatter;
 @EnableScheduling // 스케쥴링 기능 활성화
 public class BatchTest {
 	
-private static final Logger Log = LoggerFactory.getLogger(BatchTest.class);
+	private static final Logger Log = LoggerUtil.getLogger(LoggingConfig.class);
     
 	/**
 	 *	Spring 에 내장되어 있는 @Scheduled 을 사용하여 cron 시간 설정으로 스케줄링진행

@@ -1,9 +1,10 @@
 package com.football.domain.mail;
 
+import com.football.common.config.LoggingConfig;
+import com.football.common.utils.LoggerUtil;
 import com.football.common.utils.MailService;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -11,7 +12,7 @@ import org.springframework.context.ApplicationContext;
 @SpringBootApplication(scanBasePackages = "com.football")
 public class MailTest {
 	
-	private static final Logger Log = LoggerFactory.getLogger(MailTest.class);
+	private static final Logger Log = LoggerUtil.getLogger(LoggingConfig.class);
 	
     public static void main(String[] args) {
         // Spring Boot 컨텍스트 로드

@@ -1,9 +1,9 @@
 package com.football.common.config;
 
 import com.football.common.utils.AES256Util;
+import com.football.common.utils.LoggerUtil;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -13,7 +13,7 @@ import java.util.Properties;
 @Configuration
 public class MailConfig {
 	
-	private static final Logger Log = LoggerFactory.getLogger(MailConfig.class);
+	private static final Logger Log = LoggerUtil.getLogger(LoggingConfig.class);
 	
     @Bean
     public JavaMailSender javaMailSender(){
