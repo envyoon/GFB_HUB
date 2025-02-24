@@ -17,7 +17,17 @@ import java.util.List;
 @RequestMapping("/api/tests")
 @RequiredArgsConstructor //final이 붙은 필드를 자동으로 생성자 주입 
 public class TestController {
-    private final TestService testService;
+    
+	/**
+	 * lombok을 사용하지 않는다면 
+	 * 
+	 * @Autowired
+	 * private TestService testService;
+	 * 
+	 * 위와같이 선언하여 생성자를 주입한다. (final 제거)
+	 */
+	
+	private final TestService testService;
     
     
     // Get 요청 테스트(전체) - http://localhost:8080/api/tests
