@@ -22,7 +22,7 @@ public class BatchTest {
 	 *	사용법 : public void 테스크명() {}
 	 *	{} 내부에 실행시켜야 할 작업을 명시 해 준다.
 	 */
-    @Scheduled(cron = "0 * * * * *")
+//    @Scheduled(cron = "0 * * * * *")
     public void testTask() {
     	
     	LocalTime now = LocalTime.now();
