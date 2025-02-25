@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
+@RequiredArgsConstructor //final이 붙은 필드를 자동으로 생성자 주입
 public class TestService {
     private final TestMapper testMapper;
 
