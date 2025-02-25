@@ -5,6 +5,9 @@ import com.football.domain.test.dto.TestResponseDto;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
 public interface TestMapper {
     List<TestResponseDto> findAll();
     TestResponseDto findById(Long id);
