@@ -38,6 +38,7 @@ dependencies {
 	implementation 'jakarta.validation:jakarta.validation-api'
 	implementation 'commons-io:commons-io:2.18.0'
 	implementation 'com.google.code.gson:gson:2.12.1'
+	implementation 'com.fasterxml.jackson.core:jackson-core:2.18.2'
 	
 	// Oracle Database Dependencies
 	implementation 'com.oracle.database.security:oraclepki'
